@@ -10,6 +10,11 @@
         }
     ],
     "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "Infinity\\Eightdown\\": "src/"
+        }
+    },
     "require": {
         "php": ">=5.4.0",
         "erusev/parsedown": "1.5.*"
