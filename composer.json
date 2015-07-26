@@ -12,7 +12,7 @@
     "minimum-stability": "stable",
     "autoload": {
         "psr-4": {
-            "Infinity\\Eightdown\\": "src/"
+            "InfinityNext\\Eightdown\\": "src/"
         }
     },
     "require": {
