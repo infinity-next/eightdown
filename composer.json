@@ -1,0 +1,17 @@
+{
+    "name": "infinity-next/eightdown",
+    "description": "A Parsedown implementation for Laravel that adds optional features imageboard users will be familiar with.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Joshua Moon",
+            "email": "josh@jaw.sh"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=5.4.0",
+        "erusev/parsedown": "1.5.*"
+    },
+}
