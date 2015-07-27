@@ -104,7 +104,7 @@ trait ParsedownConfig {
 			return parent::blockQuote($Line);
 		}
 		
-		if ($Line['text'][0] === '>' and preg_match('/^>(?:!)?[ ]?(.*)/', $Line['text'], $matches))
+		if ($Line['text'][0] === '>' and preg_match('/^>?[ ]?(.*)/', $Line['text'], $matches))
 		{
 			if (isset($Block['interrupted']))
 			{
