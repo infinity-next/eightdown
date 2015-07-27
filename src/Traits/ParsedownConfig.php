@@ -49,6 +49,12 @@ trait ParsedownConfig {
 				$this->removeInlineByName($disabledMarkup);
 			}
 			
+			foreach ($options['enable'] as $enabledMarkup)
+			{
+				$enableMarkupMethod = camel_case("enable_markup_{$enabledMarkup}");
+				$this->{$enableMarkupMethod}();
+			}
+			
 			return $this;
 		}
 		else if (is_string($options))
@@ -98,7 +104,7 @@ trait ParsedownConfig {
 			return parent::blockQuote($Line);
 		}
 		
-		if ($Line['text'][0] === '>' and preg_match('/^>[ ]?(.*)/', $Line['text'], $matches))
+		if ($Line['text'][0] === '>' and preg_match('/^>(?:!)?[ ]?(.*)/', $Line['text'], $matches))
 		{
 			if (isset($Block['interrupted']))
 			{
@@ -108,13 +114,6 @@ trait ParsedownConfig {
 			}
 			
 			$Block['element']['text'] []= "&gt;" . $matches[1];
-			
-			return $Block;
-		}
-		
-		if ( ! isset($Block['interrupted']))
-		{
-			$Block['element']['text'] []= "&gt;" . $Line['text'];
 			
 			return $Block;
 		}

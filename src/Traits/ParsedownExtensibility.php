@@ -41,7 +41,7 @@ trait ParsedownExtensibility {
 	 * @param  Closure $closure
 	 * @return boolean
 	 */
-	public function extendBlockComplete($blockName, Closure $Closure)
+	public function extendBlockComplete($blockName, Closure $closure)
 	{
 		$blockName  = ucfirst(strtolower($blockName));
 		$methodName = camel_case("block_{$blockName}_complete");
@@ -75,7 +75,27 @@ trait ParsedownExtensibility {
 	{
 		$this->elementClosures[$methodName] = $closure->bindTo($this);
 		
-		return $this;//$this->hasElementMethod($methodName);
+		return $this;
+	}
+	
+	
+	/**
+	 * Extends the inline parser dictionary.
+	 *
+	 * @param  
+	 * @return 
+	 */
+	public function addInlineType($Marker, $Type)
+	{
+		if (!isset($this->InlineTypes[$Marker]))
+		{
+			$this->InlineTypes[$Marker] = [];
+		}
+		
+		$InlineTypes = &$this->InlineTypes[$Marker];
+		array_unshift($InlineTypes, $Type);
+		
+		return $this;
 	}
 	
 	

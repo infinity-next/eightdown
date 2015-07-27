@@ -4,13 +4,15 @@ use InfinityNext\Eightdown\Contracts\Eightdown as EightdownContract;
 
 use InfinityNext\Eightdown\Traits\ParsedownConfig;
 use InfinityNext\Eightdown\Traits\ParsedownExtensibility;
+use InfinityNext\Eightdown\Traits\ParsedownSpoilers;
 
 use InfinityNext\Eightdown\Parsedown as MarkdownEngine;
 
 class Eightdown extends MarkdownEngine implements EightdownContract {
 	
 	use ParsedownConfig,
-		ParsedownExtensibility;
+		ParsedownExtensibility,
+		ParsedownSpoilers;
 	
 	/**
 	 * Parses input text through our markup engine.
