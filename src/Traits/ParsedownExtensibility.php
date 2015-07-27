@@ -26,7 +26,7 @@ trait ParsedownExtensibility {
 	 * @param  Closure $closure
 	 * @return boolean
 	 */
-	public function extendBlockContinue($blockName, Closure $Closure)
+	public function extendBlockContinue($blockName, Closure $closure)
 	{
 		$blockName  = ucfirst(strtolower($blockName));
 		$methodName = camel_case("block_{$blockName}_continue");
@@ -75,7 +75,7 @@ trait ParsedownExtensibility {
 	{
 		$this->elementClosures[$methodName] = $closure->bindTo($this);
 		
-		return $this->hasElementMethod($methodName);
+		return $this;//$this->hasElementMethod($methodName);
 	}
 	
 	
