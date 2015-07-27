@@ -11,11 +11,11 @@ class EightdownServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		$this->app->singleton('parsedown', function($app) {
-			return new EightdownOverload;
+		$this->app->singleton('markdown', function($app) {
+			return new Eightdown;
 		});
 		
-		$this->app->alias('parsedown', 'InfinityNext\Eightdown\EightdownOverload');
+		$this->app->alias('markdown', 'InfinityNext\Eightdown\Eightdown');
 	}
 	
 	/**
@@ -25,7 +25,7 @@ class EightdownServiceProvider extends ServiceProvider {
 	 */
 	public function provides()
 	{
-		return ['InfinityNext\Eightdown\EightdownOverload'];
+		return ['InfinityNext\Eightdown\Eightdown'];
 	}
 	
 }

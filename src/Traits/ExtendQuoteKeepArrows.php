@@ -1,6 +1,6 @@
 <?php namespace InfinityNext\Eightdown\Traits;
 
-trait PreserveQuoteArrows {
+trait ExtendQuoteKeepArrows {
 	
 	/**
 	 * Injects a greater-than sign at the start of a quote block.

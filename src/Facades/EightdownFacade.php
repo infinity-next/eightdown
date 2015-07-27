@@ -11,7 +11,7 @@ class EightdownFacade extends Facade {
 	 */
 	protected static function getFacadeAccessor()
 	{
-		return 'parsedown';
+		return 'markdown';
 	}
 	
 }

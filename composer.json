@@ -1,6 +1,6 @@
 {
     "name": "infinity-next/eightdown",
-    "description": "A Parsedown implementation for Laravel that adds optional features imageboard users will be familiar with.",
+    "description": "Eightdown is a Markdown implementation for Laravel that adds optional features imageboard users will be familiar with.",
     "type": "library",
     "license": "MIT",
     "authors": [
