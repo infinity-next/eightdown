@@ -43,7 +43,6 @@ trait ParsedownConfig {
 				->setUrlsLinked( !!$this->config('general.parseURL') );
 			
 			// Disable items
-<<<<<<< HEAD
 			if (isset($options['disable']))
 			{
 				foreach ($options['disable'] as $disabledMarkup)
@@ -60,18 +59,6 @@ trait ParsedownConfig {
 					$enableMarkupMethod = camel_case("enable_markup_{$enabledMarkup}");
 					$this->{$enableMarkupMethod}();
 				}
-=======
-			foreach ($options['disable'] as $disabledMarkup)
-			{
-				$this->removeBlockByName($disabledMarkup);
-				$this->removeInlineByName($disabledMarkup);
-			}
-			
-			foreach ($options['enable'] as $enabledMarkup)
-			{
-				$enableMarkupMethod = camel_case("enable_markup_{$enabledMarkup}");
-				$this->{$enableMarkupMethod}();
->>>>>>> 0dc4591d803360c81fda28e4df9146a1005e9b95
 			}
 			
 			return $this;
