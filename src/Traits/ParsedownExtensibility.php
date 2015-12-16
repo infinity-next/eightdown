@@ -90,6 +90,7 @@ trait ParsedownExtensibility {
 		if (!isset($this->InlineTypes[$Marker]))
 		{
 			$this->InlineTypes[$Marker] = [];
+			$this->inlineMarkerList .= $Marker;
 		}
 		
 		$InlineTypes = &$this->InlineTypes[$Marker];
