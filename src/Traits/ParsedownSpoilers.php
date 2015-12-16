@@ -12,7 +12,7 @@ trait ParsedownSpoilers {
 					return;
 				}
 				
-                                if (substr($Excerpt['text'], 0, 2) === "==" && preg_match('/^==(?=\S)(.+?)(?<=\S)==/', $Excerpt['text'], $matches))
+				if (substr($Excerpt['text'], 0, 2) === "==" && preg_match('/^==(?=\S)(.+?)(?<=\S)==/', $Excerpt['text'], $matches))
 				{
 					return [
 						'extent' => strlen($matches[0]),
