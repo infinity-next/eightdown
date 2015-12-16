@@ -1154,13 +1154,9 @@ class Parsedown
 
         $marker = $Excerpt['text'][0];
 
-        if ($Excerpt['text'][1] === $marker and preg_match($this->StrongRegex, $Excerpt['text'], $matches))
+        if ($Excerpt['text'][1] === $marker and preg_match($this->StrongRegex[$marker], $Excerpt['text'], $matches))
         {
             $emphasis = 'strong';
-        }
-        elseif ($Excerpt['text'][1] === $marker and preg_match($this->InsRegex, $Excerpt['text'], $matches))
-        {
-            $emphasis = 'ins';
         }
         elseif (preg_match($this->EmRegex[$marker], $Excerpt['text'], $matches))
         {
@@ -1556,9 +1552,10 @@ class Parsedown
         '\\', '`', '*', '_', '{', '}', '[', ']', '(', ')', '>', '#', '+', '-', '.', '!', '|',
     );
 
-    protected $StrongRegex = '/^[*]{2}((?:\\\\\*|[^*]|[*][^*]*[*])+?)[*]{2}(?![*])/s';
-
-    protected $InsRegex = '/^__((?:\\\\_|[^_]|_[^_]*_)+?)__(?!_)/us';
+    protected $StrongRegex = array(
+        '*' => '/^[*]{2}((?:\\\\\*|[^*]|[*][^*]*[*])+?)[*]{2}(?![*])/s',
+        '_' => '/^__((?:\\\\_|[^_]|_[^_]*_)+?)__(?!_)/us',
+    );
 
     protected $EmRegex = array(
         '*' => '/^[*]((?:\\\\\*|[^*]|[*][*][^*]+?[*][*])+?)[*](?![*])/s',
