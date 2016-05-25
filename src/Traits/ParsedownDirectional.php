@@ -84,7 +84,6 @@ trait ParsedownDirectional
     protected function unmarkedText($text)
     {
         $newText = "";
-        $matches = 0;
 
         if ($this->breaksEnabled)
         {
@@ -117,11 +116,15 @@ trait ParsedownDirectional
 
             if (!is_null($dir))
             {
-                $part = "<span dir=\"{$dir}\">{$part}</span>";
+                $newText .= "<div dir=\"{$dir}\">{$part}</div>\n";
+            }
+            else
+            {
+                $newText .= "<br />\n";
             }
         }
 
-        return implode($parts, "<br />\n");
+        return $newText;
     }
 
     protected function getLtrStrLen($text)
