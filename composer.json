@@ -9,14 +9,25 @@
             "email": "josh@jaw.sh"
         }
     ],
-    "minimum-stability": "stable",
+    "require": {
+        "php": ">=5.5.9",
+        "illuminate/contracts": "5.1.*|5.2.*|5.3.*",
+        "illuminate/support": "5.1.*|5.2.*|5.3.*"
+    },
+    "require-dev": {
+        "graham-campbell/testbench": "^3.1",
+        "phpunit/phpunit": "^4.8|^5.0"
+    },
     "autoload": {
         "psr-4": {
             "InfinityNext\\Eightdown\\": "src/"
         }
     },
-    "require": {
-        "php": ">=5.4.0",
-        "erusev/parsedown": "1.5.*"
-    }
+    "autoload-dev": {
+        "psr-4": {
+            "InfinityNext\\Tests\\Eightdown\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }

@@ -1,4 +1,6 @@
-<?php namespace InfinityNext\Eightdown;
+<?php
+
+namespace InfinityNext\Eightdown;
 
 #
 #
