@@ -94,8 +94,13 @@ trait ParsedownDirectional
             $parts = preg_split('/(?:[ ][ ]+|[ ]*\\\\)\n/', $text);
         }
 
-        foreach ($parts as &$part)
+        foreach ($parts as $index => &$part)
         {
+            if ($index > 0)
+            {
+                $newText .= "<br />\n";
+            }
+
             // Remove trailing spaces.
             $part = preg_replace('/[ ]*\n/', "\n", $part);
 
@@ -103,7 +108,6 @@ trait ParsedownDirectional
             $ltr = $this->getLtrStrLen($part);
             $rtl = $this->getRtlStrLen($part);
             $dir = null;
-
 
             if ($this->isLtr() && $rtl > 0 && $rtl > $ltr)
             {
@@ -116,11 +120,11 @@ trait ParsedownDirectional
 
             if (!is_null($dir))
             {
-                $newText .= "<div dir=\"{$dir}\">{$part}</div>\n";
+                $newText .= "<div dir=\"{$dir}\">{$part}</div>";
             }
             else
             {
-                $newText .= "<br />\n";
+                $newText .= $part;
             }
         }
 

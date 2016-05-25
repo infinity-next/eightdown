@@ -4,4 +4,4 @@
 0.000%</p>
 <p>هذا بالتأكيد ستكون مغامرة.<br />
 الله أكبر.</p>
-<p><span dir="ltr">Here's a sentence in English for good measure.</span></p>
+<p><div dir="ltr">Here's a sentence in English for good measure.</div></p>
