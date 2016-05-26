@@ -9,7 +9,7 @@ trait ParsedownDirectional
      *
      * @var string
      */
-    protected $RtlRegex = "\u{0600}-\u{06ff}|\u{0750}-\u{077f}|\u{fb50}-\u{fc3f}|\u{fe70}-\u{fefc}";
+    protected $RtlRegex = "\p{Arabic}|\p{Hebrew}|\p{Syriac}|\p{Thaana}";
 
     /**
      * Tally of left-to-right characters.
@@ -138,27 +138,18 @@ trait ParsedownDirectional
 
     protected function getLtrStrLen($text)
     {
-        $ltr = "(\p{L}[^{$this->RtlRegex}])+";
-        $strLen = 0;
+        $text = mb_eregi_replace("(&(?:[a-z\d]+|#\d+|#x[a-f\d]+);)", "", $text);
+        $text = mb_eregi_replace("{$this->RtlRegex}", "", $text);
+        $text = mb_eregi_replace("\P{L}", "", $text);
 
-        if(mb_ereg($ltr, $text, $matches))
-        {
-            $strLen += mb_strlen(implode($matches));
-        }
-
-        return $strLen;
+        return mb_strlen($text);
     }
 
     protected function getRtlStrLen($text)
     {
-        $rtl = "([{$this->RtlRegex}])+";
-        $strLen = 0;
+        $rtl = "[^{$this->RtlRegex}]+";
+        $text = mb_eregi_replace($rtl, "", $text);
 
-        if(mb_ereg($rtl, $text, $matches))
-        {
-            $strLen += mb_strlen(implode($matches));
-        }
-
-        return $strLen;
+        return mb_strlen($text);
     }
 }

@@ -17,13 +17,14 @@ trait ParsedownMemeArrows
             return parent::blockQuote($Line);
         }
 
-        if (preg_match('/^>[ ]?(.*)/', $Line['text'], $matches))
+        if (mb_ereg('^>([ ]?.*)', $Line['text'], $matches))
         {
+            $matches = str_replace(">", "&gt;", $matches[1]);
             $Block = array(
                 'element' => array(
                     'name' => 'blockquote',
                     'handler' => 'lines',
-                    'text' => ["&gt;" . $matches[1]],
+                    'text' => [ "&gt;{$matches}" ],
                 ),
             );
 
@@ -44,7 +45,7 @@ trait ParsedownMemeArrows
             return parent::blockQuote($Line);
         }
 
-        if ($Line['text'][0] === '>' and preg_match('/^>?[ ]?(.*)/', $Line['text'], $matches))
+        if (mb_ereg('^>([ ]?.*)', $Line['text'], $matches))
         {
             if (isset($Block['interrupted']))
             {
@@ -53,7 +54,8 @@ trait ParsedownMemeArrows
                 unset($Block['interrupted']);
             }
 
-            $Block['element']['text'] []= "&gt;" . $matches[1];
+            $matches = str_replace(">", "&gt;", $matches[1]);
+            $Block['element']['text'][] = "&gt;{$matches}";
 
             return $Block;
         }

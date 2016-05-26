@@ -24,6 +24,22 @@ class DirectionalTest extends AbstractTestCase
                 'parseHTML'      => false,
                 'parseURL'       => true,
             ],
+
+            'disable' => [
+                "Image",
+                "Link",
+            ],
+
+            'enable' => [
+                "Spoiler",
+                "Underline",
+            ],
+
+            'markup' => [
+                'quote'   => [
+                    'keepSigns' => true,
+                ],
+            ],
         ]);
     }
 
@@ -33,6 +49,16 @@ class DirectionalTest extends AbstractTestCase
         $output = file_get_contents(__DIR__."/Cases/ArabicOutput.txt");
 
         $this->assertEquals(trim($output), $this->parser->parse($input));
+    }
+
+    public function testArabicMixedFile()
+    {
+        $input  = file_get_contents(__DIR__."/Cases/ArabicMixedInput.txt");
+        $output = file_get_contents(__DIR__."/Cases/ArabicMixedOutput.txt");
+
+        $parser = $this->parser;
+        $this->assertEquals(trim($output), $parser->parse($input));
+        $this->assertTrue($parser->isRtl());
     }
 
     public function testChineseQuotesFile()
