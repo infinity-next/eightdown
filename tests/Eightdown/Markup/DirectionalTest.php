@@ -35,6 +35,14 @@ class DirectionalTest extends AbstractTestCase
         $this->assertEquals(trim($output), $this->parser->parse($input));
     }
 
+    public function testChineseQuotesFile()
+    {
+        $input  = file_get_contents(__DIR__."/Cases/ChineseQuotesInput.txt");
+        $output = file_get_contents(__DIR__."/Cases/ChineseQuotesOutput.txt");
+
+        $this->assertEquals(trim($output), $this->parser->parse($input));
+    }
+
     public function testFrenchQuotesFile()
     {
         $input  = file_get_contents(__DIR__."/Cases/FrenchQuotesInput.txt");
