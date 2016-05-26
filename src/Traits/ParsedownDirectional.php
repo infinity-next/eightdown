@@ -38,6 +38,11 @@ trait ParsedownDirectional
      */
     protected $textDir = null;
 
+    public function enableMarkupI18n()
+    {
+        mb_regex_encoding('UTF-8');
+    }
+
     /**
      * Is this parser's last processed text RTL?
      *
@@ -133,12 +138,11 @@ trait ParsedownDirectional
 
     protected function getLtrStrLen($text)
     {
-        $ltr = "/(\p{L}[^{$this->RtlRegex}])+/i";
+        $ltr = "(\p{L}[^{$this->RtlRegex}])+";
         $strLen = 0;
 
-        if(preg_match_all($ltr, $text, $matches))
+        if(mb_ereg($ltr, $text, $matches))
         {
-            $matches = $this->filterBinary($matches[0]);
             $strLen += mb_strlen(implode($matches));
         }
 
@@ -147,23 +151,14 @@ trait ParsedownDirectional
 
     protected function getRtlStrLen($text)
     {
-        $rtl = "/([{$this->RtlRegex}])+/i";
+        $rtl = "([{$this->RtlRegex}])+";
         $strLen = 0;
 
-        if(preg_match_all($rtl, $text, $matches))
+        if(mb_ereg($rtl, $text, $matches))
         {
-            $matches = $this->filterBinary($matches[0]);
             $strLen += mb_strlen(implode($matches));
         }
 
         return $strLen;
-    }
-
-    protected function filterBinary(array $items = [])
-    {
-        return array_filter($items, function ($item)
-        {
-            return preg_match('//u', $item);
-        });
     }
 }

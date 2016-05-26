@@ -1,0 +1,24 @@
+<p>French Quotes are a fun and interesting way to memorize some French vocabulary. I selected the quotes below because they are short, famous, and easy to memorize. Enjoy!</p>
+<p>Prouver que j'ai raison serait accorder que je puis avoir tort.<br />
+<em>Proving that I am right would be admitting that I could be wrong.</em><br />
+Pierre Augustin Caron de BEAUMARCHAIS</p>
+<p>Il n'y a pas de verités moyennes.<br />
+<em>There are no half-truths.</em><br />
+Georges BERNANOS</p>
+<p>Dis-moi ce que tu manges, je te dirai ce que tu es.<br />
+<em>Tell me what you eat and I'll tell you what you are.</em><br />
+Anthelme BRILLAT-SAVARIN</p>
+<p>À vaillant coeur rien d'impossible.<br />
+<em>For a valiant heart nothing is impossible.</em><br />
+Jacques COEUR</p>
+<p>Va, je ne te hais point.<br />
+<em>Go, I don't hate you.</em><br />
+Pierre CORNEILLE</p>
+<p>Je pense, donc, je suis.<br />
+<em>I think, therefore, I am.</em><br />
+René DESCARTES</p>
+<p>On n'est point toujours une bête pour l'avoir été quelquefois.<br />
+<em>Being a fool sometimes does not make one a fool all the time.</em><br />
+Denis DIDEROT</p>
+<p>Tous pour un, un pour tous.<br />
+<em>All for one, one for all.</em></p>
