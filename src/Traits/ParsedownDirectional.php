@@ -92,11 +92,11 @@ trait ParsedownDirectional
 
         if ($this->breaksEnabled)
         {
-            $parts = preg_split('/[ ]*\n/', $text);
+            $parts = mb_split('[ ]*\n', $text);
         }
         else
         {
-            $parts = preg_split('/(?:[ ][ ]+|[ ]*\\\\)\n/', $text);
+            $parts = mb_split('(?:[ ][ ]+|[ ]*\\\\)\n', $text);
         }
 
         foreach ($parts as $index => &$part)
@@ -107,7 +107,7 @@ trait ParsedownDirectional
             }
 
             // Remove trailing spaces.
-            $part = preg_replace('/[ ]*\n/', "\n", $part);
+            $part = mb_ereg_replace('/[ ]*\n/', "\n", $part);
 
             // Determine directon
             $ltr = $this->getLtrStrLen($part);
