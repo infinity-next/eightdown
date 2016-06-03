@@ -101,6 +101,25 @@ trait ParsedownExtensibility
     }
 
     /**
+     * Extends the block parser dictionary.
+     *
+     * @param
+     * @return
+     */
+    public function addBlockType($Marker, $Type)
+    {
+        if (!isset($this->BlockTypes[$Marker]))
+        {
+            $this->BlockTypes[$Marker] = [];
+        }
+
+        $BlockTypes = &$this->BlockTypes[$Marker];
+        array_unshift($BlockTypes, $Type);
+
+        return $this;
+    }
+
+    /**
      * Removes any reference to this marker in Parsedown.
      *
      * @param  string  $marker
