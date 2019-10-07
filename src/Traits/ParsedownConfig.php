@@ -2,6 +2,9 @@
 
 namespace InfinityNext\Eightdown\Traits;
 
+use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
+
 trait ParsedownConfig
 {
     /**
@@ -71,7 +74,7 @@ trait ParsedownConfig
             {
                 foreach ($options['enable'] as $enabledMarkup)
                 {
-                    $enableMarkupMethod = camel_case("enable_markup_{$enabledMarkup}");
+                    $enableMarkupMethod = Str::camel("enable_markup_{$enabledMarkup}");
 
                     if (is_callable([$this, $enableMarkupMethod]))
                     {
@@ -84,7 +87,7 @@ trait ParsedownConfig
         }
         else if (is_string($options))
         {
-            return array_get($this->EightdownConfig, $options);
+            return Arr::get($this->EightdownConfig, $options);
         }
     }
 }

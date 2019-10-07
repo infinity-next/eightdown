@@ -3,6 +3,7 @@
 namespace InfinityNext\Eightdown\Traits;
 
 use \Closure;
+use Illuminate\Support\Str;
 
 trait ParsedownExtensibility
 {
@@ -31,7 +32,7 @@ trait ParsedownExtensibility
     public function extendBlockContinue($blockName, Closure $closure)
     {
         $blockName  = ucfirst(strtolower($blockName));
-        $methodName = camel_case("block_{$blockName}_continue");
+        $methodName = Str::camel("block_{$blockName}_continue");
 
         return $this->bindElementClosure($methodName, $closure);
     }
@@ -46,7 +47,7 @@ trait ParsedownExtensibility
     public function extendBlockComplete($blockName, Closure $closure)
     {
         $blockName  = ucfirst(strtolower($blockName));
-        $methodName = camel_case("block_{$blockName}_complete");
+        $methodName = Str::camel("block_{$blockName}_complete");
 
         return $this->bindElementClosure($methodName, $closure);
     }
@@ -61,7 +62,7 @@ trait ParsedownExtensibility
     public function extendInline($inlineName, Closure $closure)
     {
         $blockName  = ucfirst(strtolower($inlineName));
-        $methodName = camel_case("inline_{$inlineName}");
+        $methodName = Str::camel("inline_{$inlineName}");
 
         return $this->bindElementClosure($methodName, $closure);
     }

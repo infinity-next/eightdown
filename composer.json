@@ -6,18 +6,18 @@
     "authors": [
         {
             "name": "Joshua Moon",
-            "email": "josh@jaw.sh"
+            "email": "josh@jaw.sh",
+            "homepage": "https://jaw.sh"
         }
     ],
     "require": {
-        "php": ">=5.6.4",
+        "php": "^7.2",
         "ext-mbstring": "*",
-        "illuminate/contracts": "5.*",
-        "illuminate/support": "5.*"
+        "illuminate/contracts": "^6.0",
+        "illuminate/support": "^6.0"
     },
     "require-dev": {
-        "graham-campbell/testbench": "^5.3",
-        "phpunit/phpunit": "^8.4"
+        "phpunit/phpunit": "^8.0    "
     },
     "autoload": {
         "psr-4": {
