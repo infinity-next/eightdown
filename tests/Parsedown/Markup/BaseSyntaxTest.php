@@ -14,6 +14,14 @@ class BaseSyntaxTest extends AbstractTestCase
     protected $parser;
 
     /**
+     * Pulls a parser instance for testing.
+     */
+    public function setUp() : void
+    {
+        $this->parser = $this->getParsedown();
+    }
+
+    /**
      * Compounds a string with logical linebreaks.
      *
      * @param  string  $text  Text to iterate.
@@ -67,14 +75,6 @@ class BaseSyntaxTest extends AbstractTestCase
 
             $this->assertEquals($expectedText, $this->parser->text($givenText));
         }
-    }
-
-    /**
-     * Pulls a parser instance for testing.
-     */
-    public function setUp()
-    {
-        $this->parser = $this->getParsedown();
     }
 
     public function testSimpleText()

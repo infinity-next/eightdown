@@ -16,7 +16,7 @@ class DirectionalTest extends AbstractTestCase
     /**
      * Pulls a parser instance for testing.
      */
-    public function setUp()
+    public function setUp() : void
     {
         $this->parser = $this->getEightdown([
             'general' => [
