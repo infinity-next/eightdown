@@ -17,7 +17,7 @@ trait ParsedownExtensibility
     public function extendBlock($blockName, Closure $closure)
     {
         $blockName  = ucfirst(strtolower($blockName));
-        $methodName = camel_case("block_{$blockName}");
+        $methodName = Str::camel("block_{$blockName}");
 
         return $this->bindElementClosure($methodName, $closure);
     }
